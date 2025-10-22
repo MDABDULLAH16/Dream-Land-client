@@ -1,2 +1,32 @@
-@import "tailwindcss";
-@plugin "daisyui";
+ @import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+
+  --color-primary: #FFB84C;       /* Buttons, navbar, highlights */
+  --color-secondary: #FF6B6B;     /* Call-to-action hover, badges */
+  --color-accent: #6BCB77;        /* Category labels, success states */
+  --color-base-100: #FFF9FC;      /* App background */
+  --color-neutral: #333333;       /* Main text / headings */
+  --color-info: #666666;          /* Secondary / description text */
+  --color-success: #FFFFFF;       /* Text contrast (white) */
+}
+
+body{
+  background-color: #FFF9F3;
+}
+a.active {
+  color: white;       /* mint accent for subtle highlight */
+  font-weight: 600;
+ 
+}
+
+
+.dark a.active {
+  color: #fff;
+  
+}
