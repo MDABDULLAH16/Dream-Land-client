@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCSm5oMIAQd7iBnTKKCYkqwgq077uN1yOU",
-  authDomain: "dreamland-439d7.firebaseapp.com",
-  projectId: "dreamland-439d7",
-  storageBucket: "dreamland-439d7.firebasestorage.app",
-  messagingSenderId: "696726611299",
-  appId: "1:696726611299:web:6c13d3fee6b9de7b319f56",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 // Initialize Firebase
