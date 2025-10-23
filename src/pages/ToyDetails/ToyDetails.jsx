@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 const ToyDetails = () => {
   const toy = useLoaderData();
   const {
-    toyId,
     toyName,
     sellerName,
     sellerEmail,
@@ -18,14 +17,24 @@ const ToyDetails = () => {
   } = toy;
 
   const [quantity, setQuantity] = useState(1);
-  const [isFavorite, setIsFavorite] = useState(false); 
-   
- 
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const handleAddToCart = () => {
     // Simulate adding to cart logic
-     
-    toast.success('Product add to the cart')
+
+    toast.success("Product add to the cart");
+  };
+  const handleTryNow = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    console.log(email);
+
+    if (email.includes("@")) {
+      toast.success("Thanks for Try!");
+    } else {
+      toast.error("please input a email");
+    }
   };
 
   const toggleFavorite = () => {
@@ -33,7 +42,6 @@ const ToyDetails = () => {
     // Simulate favorite logic
     console.log(`${toyName} favorited: ${!isFavorite}`);
   };
- 
 
   return (
     <div className="  mx-auto p-6 bg-white rounded-xl shadow-lg">
@@ -152,7 +160,7 @@ const ToyDetails = () => {
             <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
               Get Started Today
             </h2>
-            <form className="flex flex-col space-y-4">
+            <form onSubmit={handleTryNow} className="flex flex-col space-y-4">
               <div className="form-control">
                 <label className="label" htmlFor="name">
                   <span className="label-text font-semibold">Name</span>

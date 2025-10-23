@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import ToyDetails from "../pages/ToyDetails/ToyDetails";
 import { SyncLoader } from "react-spinners";
+import NotFound from "../pages/NotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -45,4 +46,5 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {path:'*',Component:NotFound}
 ]);
