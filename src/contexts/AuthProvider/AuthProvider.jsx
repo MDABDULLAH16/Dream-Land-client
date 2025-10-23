@@ -19,22 +19,23 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [forgetPassword, setForgetPassword] = useState("");
   const userCreate = (email, password) => {
-    setLoading(true);
+    setLoading(false);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const userLogin = (email, password) => {
+    setLoading(false)
     return signInWithEmailAndPassword(auth, email, password);
   };
-  const logOutUser = () => {
-    return signOut(auth)
-      .then(() => {
-        setUser(null);
-      })
-      .catch((err) => {
-        toast.error(err.message);
-      });
+  const logOutUser = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+    } catch (err) {
+      toast.error(err.message);
+    }
   };
   const handleGoogleSignIn = () => {
+    setLoading(false)
     return signInWithPopup(auth, GoogleProvider);
   }
   useEffect(() => {
@@ -42,6 +43,9 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         setUser(currentUser);
         setLoading(false);
+      }
+      else {
+        setLoading(false)
       }
     });
     return () => unsubscribe();
@@ -51,11 +55,11 @@ const AuthProvider = ({ children }) => {
     userLogin,
     logOutUser,
     forgetPassword,
-      setForgetPassword,
+    setForgetPassword,
     user,
     setUser,
     loading,
-    handleGoogleSignIn
+    handleGoogleSignIn,
   };
   return <AuthContext value={authInfo}>{children}</AuthContext>;
 };

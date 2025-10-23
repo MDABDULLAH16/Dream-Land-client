@@ -8,19 +8,21 @@ import GoogleSignIn from "../../components/Buttons/GoogleSignIn";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { userLogin } = useContext(AuthContext);
+  const { userLogin, setForgetPassword } = useContext(AuthContext);
 
     const location = useLocation()
     const navigate = useNavigate()
 
     const from = location.state?.from?.pathname || "/";
-
+  const handleEmailChange = (e) => {
+  setForgetPassword(e.target.value)
+}
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-
+// setForgetPassword(email);
   
     // 🔹 Firebase sign-in
     userLogin(email, password)
@@ -55,6 +57,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
+              onChange={handleEmailChange}
               placeholder="Enter your email"
               required
               className="w-full border border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-600 outline-none"
@@ -91,7 +94,7 @@ const Login = () => {
           {/* Forgot Password */}
           <div className="text-right">
             <Link
-              to="/forgot-password"
+              to="/resetPassword"
               className="text-sm text-purple-600 hover:underline"
             >
               Forgot password?

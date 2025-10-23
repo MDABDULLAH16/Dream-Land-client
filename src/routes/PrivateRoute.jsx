@@ -4,7 +4,7 @@ import { AuthContext } from '../contexts/AuthContext/AuthContext';
 import { SyncLoader } from 'react-spinners';
 
 const PrivateRoute = ({ children }) => {
-    const {loading,user}= use(AuthContext)
+    const {user,loading}= use(AuthContext)
     const location = useLocation()
     if (loading) {
         return <SyncLoader color="#FFB84C" />;

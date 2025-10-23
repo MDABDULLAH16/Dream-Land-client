@@ -46,7 +46,7 @@ const MyProfile = () => {
           <img
             src={photoURL || "/profile.png"}
             alt="Profile"
-            className="w-32 h-32 rounded-full object-cover border-4 border-purple-500"
+            className="w-32 h-32 rounded-full object-cover border-4 border-secondary"
           />
         </div>
 
@@ -63,11 +63,21 @@ const MyProfile = () => {
               type="text"
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-gray-200"
+              className="w-full border border-secondary dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-gray-700 dark:text-gray-200"
               required
             />
           </div>
-
+          <div>
+            <label className="block mb-1 font-semibold text-gray-700 dark:text-gray-300">
+              Email
+            </label>
+            <input
+              type="email"
+              value={user?.email}
+              readOnly
+              className="w-full border border-secondary dark:border-gray-600 rounded-lg px-3 focus:outline-none focus:ring-2 focus:ring-secondary  py-2 bg-gray-100 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
+            />
+          </div>
           <div>
             <label className="block mb-1 font-semibold text-gray-700 dark:text-gray-300">
               Photo URL
@@ -77,14 +87,14 @@ const MyProfile = () => {
               value={photoURL}
               onChange={(e) => setPhotoURL(e.target.value)}
               placeholder="Enter image URL"
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-gray-200"
+              className="w-full border border-secondary dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-gray-700 dark:text-gray-200"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="mt-2 bg-purple-500 hover:bg-purple-600 text-white font-semibold px-6 py-2 rounded-lg transition"
+            className="mt-2 bg-secondary hover:bg-accent text-white font-semibold px-6 py-2 rounded-lg transition"
           >
             {loading ? "Updating..." : "Update Profile"}
           </button>

@@ -20,7 +20,7 @@ const Footer = () => {
                 <div className="flex items-center">
                   {" "}
                   <img height={80} width={80} src={logo} alt="" />{" "}
-                  <span className="text-4xl font-bold text-[#00D390]">
+                  <span className="text-4xl font-bold text-secondary">
                     DreamLand
                   </span>
                 </div>
@@ -166,9 +166,9 @@ const Footer = () => {
                   </div>
                   <button
                     onClick={handleSubscribe}
-                    className="btn bg-[#00D390] font-semibold text-white my-4"
+                    className="btn bg-secondary font-semibold text-white my-4 hover:bg-accent"
                   >
-                    Uninstall
+                    Subscribe
                   </button>
                 </form>
               </div>
@@ -178,7 +178,7 @@ const Footer = () => {
 
             <p className="text-sm text-center text-gray-600">
               © Copyright {date}, All Rights Reserved by{" "}
-              <span className="text-[#00D390] font-bold">DreamLand</span>
+              <span className="text-secondary font-bold">DreamLand</span>
             </p>
           </div>
         </section>
