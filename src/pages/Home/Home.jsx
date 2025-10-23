@@ -1,11 +1,12 @@
 import React from 'react';
 import Slider from '../../components/Slider/Slider';
+import TopToy from '../../components/TopToy/TopToy';
 
 const Home = () => {
     return (
-        <div className='bg-base-100 '>
-           
-           <Slider></Slider>
+        <div className='bg-base-100 '>           
+            <Slider></Slider>
+            <TopToy></TopToy>
         </div>
     );
 };
