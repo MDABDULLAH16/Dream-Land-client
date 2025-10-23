@@ -11,7 +11,7 @@ import Container from "../Container/Container";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOutUser, loading } = useContext(AuthContext);
-  console.log(user);
+
   
 
   const navLinks = (

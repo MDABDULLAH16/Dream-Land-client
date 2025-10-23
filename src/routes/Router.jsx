@@ -5,6 +5,8 @@ import MyProfile from "../pages/MyProfile/MyProfile";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import ToyDetails from "../pages/ToyDetails/ToyDetails";
+import { SyncLoader } from "react-spinners";
 
 export const router = createBrowserRouter([
   {
@@ -14,13 +16,28 @@ export const router = createBrowserRouter([
       { index: true, Component: Home },
       {
         path: "myProfile",
-        element: <PrivateRoute>
-          <MyProfile></MyProfile>
-        </PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
         Component: Login,
+      },
+      {
+        path: "/toyDetails/:id",
+        loader: async ({ params }) => {
+          const res = await fetch("/ToyData.json");
+          const data = await res.json();
+          const toy = data.find((t) => t.toyId == params.id);
+          return toy;
+        },
+        element: <PrivateRoute>
+        <ToyDetails></ToyDetails>
+      </PrivateRoute>,
+        hydrateFallbackElement: <SyncLoader color="#FF6B6B" />,
       },
       {
         path: "/register",

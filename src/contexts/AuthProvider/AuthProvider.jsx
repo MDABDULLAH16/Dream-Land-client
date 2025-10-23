@@ -10,9 +10,11 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { toast } from "react-toastify";
+ 
 
 const GoogleProvider =new GoogleAuthProvider()
 const AuthProvider = ({ children }) => {
+ 
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [forgetPassword, setForgetPassword] = useState("");
@@ -33,14 +35,7 @@ const AuthProvider = ({ children }) => {
       });
   };
   const handleGoogleSignIn = () => {
-    return signInWithPopup(auth, GoogleProvider).then(result => {
-      const user = result.user;
-      if (user) {
-        toast.success('log in successful!!')
-      }
-    }).catch(err => {
-      toast.error(err.message)
-    })
+    return signInWithPopup(auth, GoogleProvider);
   }
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
