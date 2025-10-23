@@ -52,10 +52,8 @@ const Navbar = () => {
               <>
                 <img
                   src={user.photoURL ? user.photoURL : userProfile}
-                  height={40}
-                  width={40}
                   alt="User"
-                  className="rounded-full object-cover mr-3 border-2 border-accent"
+                  className=" w-8 h-8 rounded-full object-cover mr-3 border border-secondary"
                 />
 
                 <button
