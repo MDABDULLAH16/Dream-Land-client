@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+import GoogleSignIn from "../../components/Buttons/GoogleSignIn";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -35,13 +36,7 @@ const Login = () => {
         toast.error(err.message);
       });
   };
-
-  // 🔹 Google Sign-In Handler
-  const handleGoogleLogin = () => {
-    googleSignIn()
-      .then(() => toast.success("Logged in with Google!"))
-      .catch((err) => toast.error(err.message));
-  };
+ 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
@@ -118,14 +113,7 @@ const Login = () => {
           </div>
 
           {/* Google Sign-In */}
-          <button
-            type="button"
-            onClick={handleGoogleLogin}
-            className="flex items-center justify-center w-full border border-gray-300 dark:border-gray-700 dark:bg-gray-900 py-2 rounded-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-          >
-            <FcGoogle size={22} className="mr-2" />
-            Continue with Google
-          </button>
+         <GoogleSignIn></GoogleSignIn>
 
           {/* Register Link */}
           <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">

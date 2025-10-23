@@ -6,8 +6,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
+import { toast } from "react-toastify";
 
+const GoogleProvider =new GoogleAuthProvider()
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
@@ -28,6 +32,16 @@ const AuthProvider = ({ children }) => {
         toast.error(err.message);
       });
   };
+  const handleGoogleSignIn = () => {
+    return signInWithPopup(auth, GoogleProvider).then(result => {
+      const user = result.user;
+      if (user) {
+        toast.success('log in successful!!')
+      }
+    }).catch(err => {
+      toast.error(err.message)
+    })
+  }
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -43,7 +57,9 @@ const AuthProvider = ({ children }) => {
     logOutUser,
     forgetPassword,
       setForgetPassword,
-    user 
+    user ,
+    loading,
+    handleGoogleSignIn
   };
   return <AuthContext value={authInfo}>{children}</AuthContext>;
 };

@@ -1,12 +1,13 @@
 import React, { use } from 'react';
 import { Navigate, useLocation } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext/AuthContext';
+import { SyncLoader } from 'react-spinners';
 
 const PrivateRoute = ({ children }) => {
     const {loading,user}= use(AuthContext)
     const location = useLocation()
     if (loading) {
-        return <h1>Loading....</h1>
+        return <SyncLoader color="#FFB84C" />;
     }
     if (user) {
       return children;

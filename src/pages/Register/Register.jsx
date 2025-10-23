@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from './../../contexts/AuthContext/AuthContext';
 
 import { updateProfile } from "firebase/auth";
+import GoogleSignIn from "../../components/Buttons/GoogleSignIn";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -134,14 +135,7 @@ const Register = () => {
           </div>
 
           {/* Google Sign-In */}
-          <button
-            type="button"
-            onClick={() => alert("Sign in with Google clicked")}
-            className="flex items-center justify-center w-full border border-gray-300 dark:border-gray-700 dark:bg-gray-900 py-2 rounded-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-          >
-            <FcGoogle size={22} className="mr-2" />
-            Sign in with Google
-          </button>
+         <GoogleSignIn></GoogleSignIn>
 
           {/* Already have account */}
           <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">
