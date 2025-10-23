@@ -45,7 +45,7 @@ const ToyDetails = () => {
 
   return (
     <div className="  mx-auto p-6 bg-white rounded-xl shadow-lg">
-      <div className="flex flex-col md:flex-row gap-6">
+     <title>Toy Details</title> <div className="flex flex-col md:flex-row gap-6">
         <figure className="md:w-1/2">
           <img
             src={pictureURL}

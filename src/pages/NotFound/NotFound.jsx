@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import SyncLoader from "react-spinners/SyncLoader";
 
 const NotFound = () => {
+   
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -12,7 +13,7 @@ const NotFound = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-50 to-gray-100">
+      <div className="flex justify-center items-center min-h-screen   from-blue-50 to-gray-100">
         <SyncLoader color="#3b82f6" size={15} />
       </div>
     );
@@ -31,6 +32,7 @@ const NotFound = () => {
       </style>
       <div className="flex items-center justify-center min-h-screen   from-blue-50 to-gray-100 px-4">
         <div className="text-center animate-fade-in max-w-md w-full">
+          <title>Not Found</title>
           <img
             src="https://yemca-services.net/404.png"
             alt="404 Illustration"

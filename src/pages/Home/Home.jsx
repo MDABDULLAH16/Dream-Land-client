@@ -4,7 +4,8 @@ import TopToy from '../../components/TopToy/TopToy';
 
 const Home = () => {
     return (
-        <div className='bg-base-100 '>           
+        <div className='bg-base-100 '> 
+        <title>DreamLand Home</title>    
             <Slider></Slider>
             <TopToy></TopToy>
         </div>

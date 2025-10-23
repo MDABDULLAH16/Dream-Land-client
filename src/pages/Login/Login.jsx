@@ -40,6 +40,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
+      <title>Login</title>
       <div className="w-full max-w-md bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-8">
         <h2 className="text-2xl font-bold text-center mb-6 dark:text-gray-100">
           Log In
