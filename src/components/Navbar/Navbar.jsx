@@ -2,10 +2,11 @@ import { useState, useContext } from "react";
 import logo from "/logo.png";
 import { Link, NavLink } from "react-router";
 import { IoClose, IoMenu } from "react-icons/io5";
-import Container from "./../Container/Container";
+ 
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 import { SyncLoader } from "react-spinners";
 import userProfile from "/profile.png";
+import Container from "../Container/Container";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,7 +39,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img src={logo} className="h-6 mr-3 sm:h-9" alt="Logo" />
-            <span className="self-center text-xl font-semibold whitespace-nowrap text-base-content">
+            <span className="self-center text-3xl  text-secondary font-semibold whitespace-nowrap  ">
               DreamLand
             </span>
           </Link>
