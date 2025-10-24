@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Sadik Rahman",
+    "image": "https://i.ibb.co.com/B203KXC7/man2.png",
+    "description": "Loved the collection! I bought a remote control car for my son — great quality and fast delivery. Definitely coming back for more!",
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "name": "Rafiul Hasan",
+    "image": "https://i.ibb.co.com/8QLJw5j/man.png",
+    "description": "The Lego sets are original and well-priced. Customer support was also very responsive. My kids are super happy!",
+    "rating": 5.0
+  },
+  {
+    "id": 3,
+    "name": "Nusrat Jahan",
+    "image": "https://i.ibb.co.com/67zJ8SgR/woman.png",
+    "description": "Nice packaging and timely delivery. The plush toys are soft and adorable, though I expected a bit larger size.",
+    "rating": 4.5
+  }
+]

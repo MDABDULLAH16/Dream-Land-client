@@ -45,15 +45,16 @@ const ToyDetails = () => {
 
   return (
     <div className="  mx-auto p-6 bg-white rounded-xl shadow-lg">
-     <title>Toy Details</title> <div className="flex flex-col md:flex-row gap-6">
-        <figure className="md:w-1/2">
+      <title>Toy Details</title>{" "}
+      <div className="flex flex-col md:flex-row gap-6">
+        <figure data-aos="fade-right" className="md:w-1/2">
           <img
             src={pictureURL}
             alt={toyName}
             className="w-full h-auto rounded-lg"
           />
         </figure>
-        <div className="card-body p-0 md:w-1/2">
+        <div data-aos="fade-left" className="card-body p-0 md:w-1/2">
           <h1 className="card-title text-3xl font-bold text-gray-900 mb-2">
             {toyName}
           </h1>
@@ -101,7 +102,7 @@ const ToyDetails = () => {
                 checked={rating >= 5}
                 readOnly
               />
-              <span className="ml-2 text-gray-600">({rating})</span>
+              <span className="ml-2 text-orange-400 bg-white opacity-100">({rating})</span>
             </div>
           </div>
           <p className="text-gray-600 mb-4">
@@ -152,9 +153,8 @@ const ToyDetails = () => {
           </p>
         </div>
       </div>
-
       {/* User Review Form */}
-      <div className="flex items-center justify-center min-h-screen   p-4">
+      <div className="flex items-center justify-center   p-4">
         <div className="card w-full max-w-md bg-base-100 shadow-2xl rounded-xl overflow-hidden">
           <div className="card-body p-8">
             <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">

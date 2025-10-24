@@ -33,7 +33,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-primary py-2.5">
+    <nav className="bg-accent py-2.5">
       <Container>
         <div className="flex flex-wrap items-center justify-between max-w-7xl px-4 mx-auto">
           {/* Logo */}
@@ -50,7 +50,7 @@ const Navbar = () => {
               <SyncLoader color="#FF6B6B" />
             ) : user ? (
               <>
-                <img
+                <img title={user.displayName}
                   src={user.photoURL ? user.photoURL : userProfile}
                   alt="User"
                   className=" w-8 h-8 rounded-full object-cover mr-3 border border-secondary"

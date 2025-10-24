@@ -3,7 +3,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 
 const ResetPassword = () => {
     const { forgetPassword } = use(AuthContext)
@@ -20,7 +20,8 @@ const navigate = useNavigate()
       await sendPasswordResetEmail(auth, email);
       toast.success("Password reset email sent! Check your inbox.");
         setEmail("");
-        navigate('/login')
+    
+      window.open("https://mail.google.com/mail/u/0/#inbox","_blank");
     } catch (error) {
       toast.error(`Error: ${error.message}`);
     } finally {
