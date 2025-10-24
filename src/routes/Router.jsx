@@ -9,6 +9,7 @@ import ToyDetails from "../pages/ToyDetails/ToyDetails";
 import { SyncLoader } from "react-spinners";
 import NotFound from "../pages/NotFound/NotFound";
 import ResetPassword from "../pages/ForgetPassword/ForgetPassword";
+import Toys from "../pages/Toys/Toys";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,17 @@ export const router = createBrowserRouter([
             <ToyDetails></ToyDetails>
           </PrivateRoute>
         ),
+        hydrateFallbackElement: <SyncLoader color="#FF6B6B" />,
+      },
+      {
+        path: "/toys",
+        loader: async ( ) => {
+          const res = await fetch("/ToyData.json");
+          const data = await res.json();
+           
+          return data;
+        },
+        Component:Toys,
         hydrateFallbackElement: <SyncLoader color="#FF6B6B" />,
       },
       {

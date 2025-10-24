@@ -17,7 +17,7 @@ const Reviews = () => {
     <Container>
       <div className="  mx-auto px-4 py-16">
         <h1
-          data-aos="zoom-in"
+          data-aos="flip-left"
           className="text-3xl lg:text-5xl font-bold text-center mb-12 text-secondary"
         >
           Hear from Other Happy Parents

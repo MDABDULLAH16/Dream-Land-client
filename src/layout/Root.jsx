@@ -9,7 +9,7 @@ import "aos/dist/aos.css"; // ✅ Must import this for animations to work
 const Root = () => {
   useEffect(() => {
     AOS.init({
-      duration: 900, // animation duration in ms
+      duration: 500, // animation duration in ms
       mirror: true, // animation happens only once
       easing: "ease-in-out",
     });

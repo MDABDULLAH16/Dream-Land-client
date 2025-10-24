@@ -18,14 +18,20 @@ const Navbar = () => {
     <>
       <NavLink
         to="/"
-        className="block py-2 pl-3 pr-4 border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-white transition-colors"
+        className="block py-2 pl-3 pr-4 border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors"
       >
         Home
       </NavLink>
 
       <NavLink
+        to="/toys"
+        className="block py-2 pl-3 pr-4 border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors"
+      >
+      Toys
+      </NavLink>
+      <NavLink
         to="/myProfile"
-        className="block py-2 pl-3 pr-4 border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-white transition-colors"
+        className="block py-2 pl-3 pr-4 border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors"
       >
         My Profile
       </NavLink>
@@ -33,13 +39,13 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-accent py-2.5">
+    <nav className=" py-2.5">
       <Container>
         <div className="flex flex-wrap items-center justify-between max-w-7xl px-4 mx-auto">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img src={logo} className="h-6 mr-3 sm:h-9" alt="Logo" />
-            <span className="self-center text-3xl  text-secondary font-semibold whitespace-nowrap  ">
+            <span className="self-center text-2xl lg:text-3xl  text-secondary font-bold font-bali whitespace-nowrap  ">
               DreamLand
             </span>
           </Link>
@@ -58,10 +64,11 @@ const Navbar = () => {
 
                 <button
                   onClick={() => logOutUser()}
-                  className="text-base-100 bg-secondary hover:bg-accent focus:ring-4 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 transition-colors"
+                  className="text-base-100 bg-secondary hover:bg-accent focus:ring-4 font-medium rounded-lg text-sm   px-2 lg:px-5 py-1 lg:py-2.5 transition-colors"
                 >
                   Log out
-                </button>
+                  </button>
+                  
               </>
             ) : (
               <Link

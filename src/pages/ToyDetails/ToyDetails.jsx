@@ -51,7 +51,7 @@ const ToyDetails = () => {
           <img
             src={pictureURL}
             alt={toyName}
-            className="w-full h-auto rounded-lg"
+            className="w-full h-auto p-3 rounded-lg"
           />
         </figure>
         <div data-aos="fade-left" className="card-body p-0 md:w-1/2">
@@ -156,7 +156,7 @@ const ToyDetails = () => {
       {/* User Review Form */}
       <div className="flex items-center justify-center   p-4">
         <div className="card w-full max-w-md bg-base-100 shadow-2xl rounded-xl overflow-hidden">
-          <div className="card-body p-8">
+          <div data-aos='flip-right' className="card-body p-8">
             <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
               Get Started Today
             </h2>

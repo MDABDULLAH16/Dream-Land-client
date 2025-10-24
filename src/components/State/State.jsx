@@ -5,7 +5,8 @@ import shipping from '/shipping.png'
 import cash from '/cash.png'
 
 const State = () => {
-    return (
+  return (
+        <Container>
       <div className="font-bali">
         <h1
           data-aos="zoom-in"
@@ -13,8 +14,8 @@ const State = () => {
         >
           For Your Satisfaction
         </h1>
-        <Container>
-          <div className="flex items-center justify-evenly gap-5">
+      
+          <div className="flex flex-col lg:flex-row items-center justify-evenly gap-5">
             <div
               data-aos="fade-right"
               className="flex bg-[#F4FAFF] text-[#12AEE0] flex-col items-center justify-center py-5 mx-auto w-full"
@@ -40,8 +41,8 @@ const State = () => {
               <p>Within 7 days</p>
             </div>
           </div>
-        </Container>
-      </div>
+
+      </div>        </Container>
     );
 };
 
