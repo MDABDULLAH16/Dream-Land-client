@@ -16,7 +16,7 @@ const TopToy = () => {
         <div>
           <h1
             data-aos="fade-up"
-            className="text-6xl font-bali text-center py-6 font-extrabold"
+            className="text-6xl font-bali text-center text-secondary my-4 py-8 font-extrabold"
           >
             Top Toys
           </h1>

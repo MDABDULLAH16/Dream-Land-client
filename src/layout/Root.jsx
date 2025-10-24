@@ -10,7 +10,7 @@ const Root = () => {
   useEffect(() => {
     AOS.init({
       duration: 900, // animation duration in ms
-      once: true, // animation happens only once
+      mirror: true, // animation happens only once
       easing: "ease-in-out",
     });
   }, []);
