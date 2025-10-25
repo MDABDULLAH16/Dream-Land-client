@@ -31,6 +31,7 @@ const navigate = useNavigate()
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4">
+      <title>Forget Password</title>
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 w-full max-w-md">
         <h1 className="text-2xl font-bold text-center mb-6 text-secondary">
           Reset Password

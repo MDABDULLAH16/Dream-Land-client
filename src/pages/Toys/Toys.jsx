@@ -18,6 +18,7 @@ const Toys = () => {
     
     return (
       <Container>
+        <title>Toys</title>
         <div>
           <h1
             data-aos="fade-up"

@@ -33,7 +33,8 @@ const Cart = () => {
   };
 
   return (
-   <div>
+    <div>
+      <title>Cart</title>
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8">
           {/* 🧱 Left Side — Cart Items */}

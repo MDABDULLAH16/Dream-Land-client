@@ -32,10 +32,10 @@ const Navbar = () => {
       </NavLink>
       <NavLink
         to="/cart"
-        className="block py-2 pl-3  border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors relative"
+        className="block py-2 pl-3  border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors lg:relative"
       >
          
-        Cart <div className="badge badge-xs badge-secondary absolute -top-2.5 -right-6">{ carts.length}</div>
+        Cart <div className="badge badge-xs badge-secondary lg:absolute lg:-top-2.5 mb-3 lg:mb-0 lg:-right-6">{ carts.length}</div>
          
       </NavLink>
       <NavLink
