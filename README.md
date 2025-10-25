@@ -1,16 +1,63 @@
-# React + Vite
+# 🧸 DreamLand – A Local Kids Toy Store Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [🌐 https://dreamland-439d7.web.app](https://dreamland-439d7.web.app)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Project Overview
 
-## React Compiler
+**DreamLand** is a vibrant and playful online marketplace where families can discover and support **local toy sellers**.  
+It blends the warmth of neighborhood toy shops with the convenience of modern e-commerce — helping parents find the perfect toys for their kids while uplifting community businesses.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 👨‍👩‍👧 User Features
+- 🔐 **User Authentication:** Secure login and registration using **Firebase Auth** (Email & Google).
+- 📖 **Toy Details Page:** View full information — price, quantity, seller info, and ratings.
+- ⭐ **User Reviews & Ratings:** Leave feedback using;
+- 🛒 **Add to Cart System:** Add toys to the cart and see dynamic updates in the navbar.
+- 📱 **Fully Responsive:** Seamlessly works across mobile, tablet, and desktop.
+- ➕ **CRUD Operations:** Add and delete toy listings securely.
+- 🔐 **Protected Routes:** Only authenticated users can manage their listings.
+
+### 💳 Cart & Checkout
+- Real-time cart synchronization using **React Context API** + **localStorage**.
+- Automatic calculation of total price and shipping charge.
+- Quick **“Buy Now”** checkout section.
+
+---
+
+## ⚙️ Tech Stack
+
+| Category | Technology |
+|-----------|-------------|
+| **Frontend Framework** | React (Vite) |
+| **Routing** | React Router v7 |
+| **State Management** | React Context API |
+| **Styling** | Tailwind CSS + DaisyUI |
+| **Authentication** | Firebase Authentication |
+| **Hosting** | Firebase Hosting |
+| **Animation & UI** | AOS, SwiperJS, React Toastify, React Icons |
+
+---
+
+## 🧩 NPM Packages Used
+
+```json
+{
+  "aos": "^2.3.4",
+  "firebase": "^12.4.0",
+  "react": "^19.1.1",
+  "react-dom": "^19.1.1",
+  "react-icons": "^5.5.0",
+  "react-rating-stars-component": "^2.2.0",
+  "react-router": "^7.9.4",
+  "react-simple-star-rating": "^5.1.7",
+  "react-spinners": "^0.17.0",
+  "react-toastify": "^11.0.5",
+  "swiper": "^12.0.3",
+  "tailwindcss": "^4.1.15",
+  "daisyui": "^5.3.7"
+}
