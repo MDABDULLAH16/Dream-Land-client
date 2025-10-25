@@ -8,7 +8,7 @@ const ToyCard = ({ toy }) => {
       data-aos="zoom-in-up"
       className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 dark:bg-gray-800 dark:text-gray-300"
     >
-      <figure className="lg:p-4 p-2">
+      <figure className="lg:p-4 p-1">
         <img
           src={pictureURL}
           alt={toyName}
@@ -16,7 +16,10 @@ const ToyCard = ({ toy }) => {
         />
       </figure>
       <div className="  lg:px-5 px-3  lg:py-3">
-        <h2 title={toyName} className="card-title lg:text-lg  font-semibold">
+        <h2 title={toyName} className=" lg:hidden  lg:text-lg  font-semibold">
+          {toyName.length > 19 ? toyName.slice(0, 12)+'..'  : toyName}
+        </h2>
+        <h2 title={toyName} className=" hidden lg:block lg:text-lg  font-semibold">
           {toyName.length > 19 ? toyName.slice(0, 17,)+'...'  : toyName}
         </h2>
         <div className="flex justify-between items-center text-sm  ">
@@ -35,15 +38,15 @@ const ToyCard = ({ toy }) => {
             </span>
           </p>
         </div>
-        <div className="flex justify-between items-center my-2">
-          <p className="text-lg font-semibold   text-violet-600 dark:text-violet-400">
+        <div className="flex flex-col justify-between gap-1 items-center mb-2">
+          <p className="lg:text-lg text-sm font-normal lg:font-semibold   text-violet-600 dark:text-violet-400">
             ${price}
           </p>
           <Link
             to={`/toyDetails/${toyId}`}
-            className="text-base-100 bg-secondary hover:bg-accent focus:ring-4 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 transition-colors"
+            className="text-base-100 bg-secondary hover:bg-accent focus:ring-4 lg:font-medium font-normal rounded-lg text-sm px-2 lg:px-5 py-1 lg:py-2.5 transition-colors"
           >
-            View More
+           View More
           </Link>
         </div>
         {/* 

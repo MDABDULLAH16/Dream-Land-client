@@ -3,7 +3,7 @@ import logo from "/logo.png";
 import { Link, NavLink } from "react-router";
 import { IoClose, IoMenu } from "react-icons/io5";
  
-import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+import { AuthContext, ProductContext } from "../../contexts/AuthContext/AuthContext";
 import { SyncLoader } from "react-spinners";
 import userProfile from "/profile.png";
 import Container from "../Container/Container";
@@ -11,6 +11,7 @@ import Container from "../Container/Container";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOutUser, loading } = useContext(AuthContext);
+  const {  carts}= useContext(ProductContext)
 
   
 
@@ -27,7 +28,15 @@ const Navbar = () => {
         to="/toys"
         className="block py-2 pl-3 pr-4 border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors"
       >
-      Toys
+        Toys
+      </NavLink>
+      <NavLink
+        to="/cart"
+        className="block py-2 pl-3  border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors relative"
+      >
+         
+        Cart <div className="badge badge-xs badge-secondary absolute -top-2.5 -right-6">{ carts.length}</div>
+         
       </NavLink>
       <NavLink
         to="/myProfile"

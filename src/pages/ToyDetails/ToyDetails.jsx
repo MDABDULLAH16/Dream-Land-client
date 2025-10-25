@@ -1,10 +1,13 @@
 import { useLoaderData } from "react-router";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
+import { ProductContext } from "../../contexts/AuthContext/AuthContext";
+import { getStoredItem } from "../../utils/AddToLocalDB";
 
 const ToyDetails = () => {
   const toy = useLoaderData();
   const {
+    toyId,
     toyName,
     sellerName,
     sellerEmail,
@@ -18,11 +21,18 @@ const ToyDetails = () => {
 
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
-
-  const handleAddToCart = () => {
-    // Simulate adding to cart logic
-
-    toast.success("Product add to the cart");
+  const { addToCart } = useContext(ProductContext);
+  
+  const handleAddToCart = (id) => {
+     const oldItem = getStoredItem();
+        if (oldItem.includes(id)) {
+            toast.error('this product already added!');
+            return        
+        } else {
+             
+          addToCart(id);  
+            toast.success('Product added successful!')
+        }
   };
   const handleTryNow = (e) => {
     e.preventDefault();
@@ -102,7 +112,9 @@ const ToyDetails = () => {
                 checked={rating >= 5}
                 readOnly
               />
-              <span className="ml-2 text-orange-400 bg-white opacity-100">({rating})</span>
+              <span className="ml-2 text-orange-400 bg-white opacity-100">
+                ({rating})
+              </span>
             </div>
           </div>
           <p className="text-gray-600 mb-4">
@@ -128,7 +140,7 @@ const ToyDetails = () => {
           <div className="flex justify-between mb-4">
             <button
               className="btn btn-secondary   text-base-100 hover:bg-accent hover:scale-105 transition-transform duration-300 focus:ring-4 focus:ring-accent/50 font-medium rounded-lg text-sm"
-              onClick={handleAddToCart}
+              onClick={() => handleAddToCart(toyId)}
               disabled={availableQuantity === 0}
             >
               Add to Cart
@@ -156,7 +168,7 @@ const ToyDetails = () => {
       {/* User Review Form */}
       <div className="flex items-center justify-center   p-4">
         <div className="card w-full max-w-md bg-base-100 shadow-2xl rounded-xl overflow-hidden">
-          <div data-aos='flip-right' className="card-body p-8">
+          <div data-aos="flip-right" className="card-body p-8">
             <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
               Get Started Today
             </h2>
