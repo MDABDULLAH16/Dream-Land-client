@@ -11,6 +11,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import ResetPassword from "../pages/ForgetPassword/ForgetPassword";
 import Toys from "../pages/Toys/Toys";
 import Cart from "../pages/Cart/Cart";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
         Component: Login,
       },
       {
+        path: "/about-us",
+        Component: AboutUs,
+      },
+      {
         path: "/resetPassword",
         Component: ResetPassword,
       },
@@ -42,35 +47,33 @@ export const router = createBrowserRouter([
           const toy = data.find((t) => t.toyId == params.id);
           return toy;
         },
-        element: (
-          <PrivateRoute>
-            <ToyDetails></ToyDetails>
-          </PrivateRoute>
-        ),
+        element: <ToyDetails></ToyDetails>,
         hydrateFallbackElement: <SyncLoader color="#FF6B6B" />,
       },
       {
         path: "/toys",
-        loader: async ( ) => {
+        loader: async () => {
           const res = await fetch("/ToyData.json");
           const data = await res.json();
-           
+
           return data;
         },
-        Component:Toys,
+        Component: Toys,
         hydrateFallbackElement: <SyncLoader color="#FF6B6B" />,
       },
       {
         path: "/cart",
-        loader: async ( ) => {
+        loader: async () => {
           const res = await fetch("/ToyData.json");
           const data = await res.json();
-           
+
           return data;
         },
-        element: <PrivateRoute>
-         <Cart></Cart>
-       </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Cart></Cart>
+          </PrivateRoute>
+        ),
         hydrateFallbackElement: <SyncLoader color="#FF6B6B" />,
       },
       {

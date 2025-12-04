@@ -2,8 +2,11 @@ import { useState, useContext } from "react";
 import logo from "/logo.png";
 import { Link, NavLink } from "react-router";
 import { IoClose, IoMenu } from "react-icons/io5";
- 
-import { AuthContext, ProductContext } from "../../contexts/AuthContext/AuthContext";
+
+import {
+  AuthContext,
+  ProductContext,
+} from "../../contexts/AuthContext/AuthContext";
 import { SyncLoader } from "react-spinners";
 import userProfile from "/profile.png";
 import Container from "../Container/Container";
@@ -11,9 +14,9 @@ import Container from "../Container/Container";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOutUser, loading } = useContext(AuthContext);
-  const {  carts}= useContext(ProductContext)
+  const { carts } = useContext(ProductContext);
 
-  
+  console.log(user?.photoURL);
 
   const navLinks = (
     <>
@@ -31,24 +34,36 @@ const Navbar = () => {
         Toys
       </NavLink>
       <NavLink
-        to="/cart"
-        className="block py-2 pl-3  border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors lg:relative"
-      >
-         
-        Cart <div className="badge badge-xs badge-secondary lg:absolute lg:-top-2.5 mb-3 lg:mb-0 lg:-right-6">{ carts.length}</div>
-         
-      </NavLink>
-      <NavLink
-        to="/myProfile"
+        to="/about-us"
         className="block py-2 pl-3 pr-4 border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors"
       >
-        My Profile
+        About Us
       </NavLink>
+
+      {user && (
+        <>
+          <NavLink
+            to="/cart"
+            className="block py-2 pl-3  border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors lg:relative"
+          >
+            Cart{" "}
+            <div className="badge badge-xs badge-secondary lg:absolute lg:-top-2.5 mb-3 lg:mb-0 lg:-right-6">
+              {carts.length}
+            </div>
+          </NavLink>
+          <NavLink
+            to="/myProfile"
+            className="block py-2 pl-3 pr-4 border-b border-transparent lg:border-0 lg:p-0 text-neutral hover:text-secondary transition-colors"
+          >
+            My Profile
+          </NavLink>
+        </>
+      )}
     </>
   );
 
   return (
-    <nav className=" py-2.5">
+    <nav className=" py-2.5 sticky top-0   z-50 w-full bg-base-100">
       <Container>
         <div className="flex flex-wrap items-center justify-between max-w-7xl px-4 mx-auto">
           {/* Logo */}
@@ -65,8 +80,10 @@ const Navbar = () => {
               <SyncLoader color="#FF6B6B" />
             ) : user ? (
               <>
-                <img title={user.displayName}
-                  src={user.photoURL ? user.photoURL : userProfile}
+                <img
+                  title={user?.displayName}
+                  referrerPolicy="no-referrer"
+                  src={user?.photoURL ? user?.photoURL : userProfile}
                   alt="User"
                   className=" w-8 h-8 rounded-full object-cover mr-3 border border-secondary"
                 />
@@ -76,8 +93,7 @@ const Navbar = () => {
                   className="text-base-100 bg-secondary hover:bg-accent focus:ring-4 font-medium rounded-lg text-sm   px-2 lg:px-5 py-1 lg:py-2.5 transition-colors"
                 >
                   Log out
-                  </button>
-                  
+                </button>
               </>
             ) : (
               <Link
